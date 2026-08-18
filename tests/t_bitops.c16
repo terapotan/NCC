@@ -1,0 +1,22 @@
+uint g_and = 0;
+uint g_or = 0;
+uint g_xor = 0;
+uint g_not = 0;
+uint g_shl = 0;
+uint g_shr = 0;
+uint g_shl_var = 0;
+
+uint main() {
+    uint x;
+    uint n;
+    x = 0x00F0;
+    g_and = x & 0x0FF0;
+    g_or = x | 0x000F;
+    g_xor = x ^ 0xFFFF;
+    g_not = ~x;
+    g_shl = 1 << 8;
+    g_shr = 0x8000 >> 4;
+    n = 3;
+    g_shl_var = 1 << n;
+    return 0;
+}

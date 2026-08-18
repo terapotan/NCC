@@ -1,0 +1,12 @@
+uint g_q = 0;
+uint g_r = 0;
+uint g_status = 0;
+uint g_ascii_val = 0;
+uint g_ascii_status = 0;
+char g_numstr[8];
+
+uint main() {
+    g_q = divide(100, 7, &g_r, &g_status);
+    g_ascii_status = ascii_to_int("12345", &g_ascii_val);
+    return 0;
+}

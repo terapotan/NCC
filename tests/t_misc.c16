@@ -1,0 +1,23 @@
+uint g_q = 0;
+uint g_r = 0;
+uint g_and = 0;
+char g_buf[16];
+uint add(uint a, uint b) {
+    return a + b;
+}
+uint main() {
+    uint total;
+    uint px;
+    total = 1333;
+    px = 4;
+    g_q = total / 7;
+    g_r = g_q % 3;
+    if (total > 10 && px == 4) {
+        g_and = add(total, px);
+    } else {
+        g_and = 0;
+    }
+    int_to_ascii(g_q, g_buf);
+    output_string(g_buf);
+    return g_q;
+}

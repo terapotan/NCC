@@ -1,0 +1,25 @@
+uint g_result = 0;
+uint classify(uint n) {
+    uint result;
+    switch (n) {
+        case 0:
+            result = 100;
+            break;
+        case 1:
+            result = 200;
+            break;
+        default:
+            result = 999;
+            break;
+    }
+    return result;
+}
+uint main() {
+    uint i;
+    i = 0;
+    while (i < 3) {
+        g_result = g_result + classify(i);
+        i = i + 1;
+    }
+    return g_result;
+}

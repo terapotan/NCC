@@ -1,0 +1,19 @@
+uint g_result = 0;
+uint sum_array(uint* arr, uint len) {
+    uint i;
+    uint s;
+    s = 0;
+    for (i = 0; i < len; i = i + 1) {
+        s = s + arr[i];
+    }
+    return s;
+}
+uint main() {
+    uint nums[5];
+    uint i;
+    for (i = 0; i < 5; i = i + 1) {
+        nums[i] = i * i;
+    }
+    g_result = sum_array(nums, 5);
+    return g_result;
+}

@@ -1,0 +1,15 @@
+struct Point {
+    uint x;
+    uint y;
+};
+uint g_result = 0;
+uint main() {
+    struct Point p;
+    struct Point* pp;
+    p.x = 3;
+    p.y = 4;
+    pp = &p;
+    pp->x = pp->x + 1;
+    g_result = p.x * 100 + p.y;
+    return g_result;
+}
