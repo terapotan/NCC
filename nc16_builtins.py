@@ -43,4 +43,8 @@ BUILTIN_SIGNATURES = {
         'divide', UINT,
         [('dividend', UINT), ('divisor', UINT), ('remainder', UINTP), ('status', UINTP)], 6,
         "戻り値：商。余りはremainderに、状態(0=成功,1=ゼロ除算)はstatusに書き込まれる"),
+    'random': BuiltinSig(
+        'divide', UINT,
+        [], 6,
+        "戻り値：生成されたランダムな16bitの値"),
 }

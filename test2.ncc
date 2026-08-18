@@ -1,0 +1,11 @@
+uint main() {
+    while(true){
+        char* str[16];
+        uint rand=0;
+        rand=random();
+        int_to_ascii(rand,str);
+        output_string(str);
+        output_string("\n");
+    }
+    return 0;
+}

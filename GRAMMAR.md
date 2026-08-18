@@ -208,6 +208,8 @@ NC-16はレジスタが非常に少ないため、複雑な部分式の一時的
 | `uint ascii_to_int(char* str, uint* out_value);` | 数字文字列→数値変換。戻り値: 0=成功,1=不正文字,2=空文字列,3=権限エラー。変換結果は`out_value`へ書き込まれる |
 | `uint int_to_ascii(uint value, char* buf);` | 数値→数字文字列変換。戻り値: 0=成功,1=権限エラー |
 | `uint divide(uint dividend, uint divisor, uint* remainder, uint* status);` | 除算。戻り値: 商。余りは`remainder`へ、状態(0=成功,1=ゼロ除算)は`status`へ書き込まれる |
+| `uint random(void);` | 16bitのランダムな値を返す。戻り値: 生成されたランダムな値。
+
 
 `out_value` / `remainder` / `status` のようなポインタ引数には、ローカル変数の
 アドレス（`&x`）を渡してください。値が不要な場合でも、ダミーの変数のアドレスを

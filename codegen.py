@@ -848,6 +848,13 @@ class CodeGen:
         lines.append("    mov a,c")
         return lines
 
+    def _builtin_random(self,args,scope):
+        lines = []
+        lines.extend(self.emit_syscall(7))
+        return lines
+        
+        
+
 
 def generate(program):
     cg = CodeGen()
