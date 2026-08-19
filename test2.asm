@@ -12,7 +12,7 @@ program_start:
 main:
     push bp
     mov bp,sp
-    sub sp,17
+    sub sp,18
 _while_2:
     mov a,1
     cmp a,0
@@ -21,6 +21,12 @@ _while_2:
     mov memval,a
     mov a,bp
     sub a,17
+    mov memaddr,a
+    mov [memaddr+0],memval
+    mov a,0x0000
+    mov memval,a
+    mov a,bp
+    sub a,18
     mov memaddr,a
     mov [memaddr+0],memval
     mov a,bp
@@ -36,7 +42,28 @@ _while_2:
     mov [memaddr+0],memval
     mov a,memval
     mov a,bp
+    sub a,18
+    push a
+    mov a,bp
     sub a,17
+    mov memaddr,a
+    mov a,[memaddr+0]
+    push a
+    mov a,0x0010
+    mov b,a
+    pop a
+    push bp
+    mov e,6
+    syscall
+    pop bp
+    mov a,d
+    mov memval,a
+    pop a
+    mov memaddr,a
+    mov [memaddr+0],memval
+    mov a,memval
+    mov a,bp
+    sub a,18
     mov memaddr,a
     mov a,[memaddr+0]
     push a

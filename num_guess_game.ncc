@@ -1,0 +1,37 @@
+// 数当てゲーム
+// 0～100までの数字のどれかが答え
+// コンピュータは正解の数字とユーザが入力した数字を比べて、ユーザが入力した数字と正解の数字の大小関係のみを伝える
+// クリアしたらクリアするまでにかかった回数をユーザに伝える
+
+uint main(){
+    char* str[32];
+    char* tmp[32];
+    uint input_num;
+    uint correct_num; //正解の数字
+    uint input_count = 0;
+
+    correct_num = random() % 100;
+    
+    output_string("Number Guessing Game\n");
+    while(true){
+        input_count = input_count + 1;
+        output_string("Please enter a number between 0 and 100.");
+        input_user_string(str);
+        ascii_to_int(str,&input_num);
+        if ( correct_num > input_num) {
+            output_string("The number you entered is smaller than the correct answer.\n");
+            continue;
+        } else if ( correct_num < input_num ) {
+            output_string("The number you entered is greater than the correct answer.\n");
+            continue;
+        } else {
+            output_string("That's right!\n");
+            output_string("number of attempts:");
+            int_to_ascii(input_count,tmp);
+            output_string(tmp);
+            output_string("\n");
+            break;
+        }
+    }
+    return 0;
+}

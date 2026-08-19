@@ -1,0 +1,69 @@
+// 石取ゲーム
+// お互いに1～3個の石を取って、最後に石を取った方の負け
+// 人間が先手、CPUが後手
+
+
+uint main(){
+    uint stone_num = 0; //石の数(20～40個の間でランダムに決定)
+    uint input_num = 0;
+    uint cpu_take_stones = 0;
+    char* str[16];
+
+    stone_num = (random() % 20) + 20;
+    
+    output_string("picking-stone game\n");
+    output_string("The player and the computer take turns taking 1 to 3 stones each, and the player who takes the last stone loses.\n");
+    int_to_ascii(stone_num,str);
+    while(true){
+        output_string("Number of stones:");
+        int_to_ascii(stone_num,str);
+        output_string(str);
+        output_string("\n");
+        while(true){
+            output_string("How many stones would you like to take? Please enter a number between 1 and 3.");
+            input_user_string(str);
+            ascii_to_int(str,&input_num);
+            // 入力された数が範囲に収まっているかどうかチェックする
+            if ( !(1 <= input_num && input_num <= 3) ) {
+                output_string("Please enter a value between 1 and 3.\n");
+                continue;
+            } else if ( stone_num < input_num ){
+                output_string("You cannot take more stones than the current number of stones.\n");
+                continue;
+            }
+            break;
+        }
+
+        stone_num = stone_num - input_num;
+
+        if (stone_num == 0){
+            output_string("The CPU wins!\n");
+            return 0;
+        }
+
+        //CPUが取る石の数を計算する
+        cpu_take_stones = (stone_num - 1) % 4;
+        if (cpu_take_stones == 0 ){
+            // プレイヤーが最善手を打てば、CPUは必ず負ける状態にある
+            // 仕方ないので1～3個の間でランダムに石を取る
+            cpu_take_stones = (random() % 2) + 1;
+        }
+
+        if ( stone_num < cpu_take_stones ){
+            cpu_take_stones = stone_num;
+        }
+
+        stone_num = stone_num - cpu_take_stones;
+
+        output_string("The CPU takes ");
+        int_to_ascii(cpu_take_stones,str);
+        output_string(str);
+        output_string(" stones.\n");
+
+        if (stone_num == 0){
+            output_string("The Player wins!\n");
+            return 0;
+        }
+    }
+    
+}

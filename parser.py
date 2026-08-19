@@ -133,6 +133,7 @@ def p_type_base(p):
     '''type_base : CHAR
                   | BOOL
                   | UINT
+                  | VOID
                   | STRUCT IDENT'''
     if len(p) == 3:
         p[0] = p[2]
